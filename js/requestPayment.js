@@ -1,0 +1,2 @@
+const API="https://supply-chain-backend-production-36ed.up.railway.app";
+function sendRequest(role){fetch(API+"/payment-request",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({role,amount:amount.value,reason:reason.value})});alert("Request sent");}

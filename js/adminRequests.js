@@ -1,3 +1,21 @@
-const API="https://supply-chain-backend-production-36ed.up.railway.app";
-fetch(API+"/payment-requests").then(r=>r.json()).then(d=>{d.forEach(r=>{const div=document.createElement("div");div.innerHTML=`${r.role} ₹${r.amount} ${r.status} <button onclick="approve(${r.id})">Approve</button>`;document.body.appendChild(div);});});
-function approve(id){fetch(API+"/approve-request",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id})}).then(()=>location.reload());}
+const API = "https://c-production-c7d3.up.railway.app";
+
+// Load requests
+fetch(API + "/admin/requests")
+  .then(r => r.json())
+  .then(d => {
+    d.forEach(req => {
+      // render request
+    });
+  });
+
+// Approve request
+function approveRequest(id) {
+  fetch(API + "/approve-request", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id })
+  })
+  .then(r => r.json())
+  .then(res => alert(res.message));
+}

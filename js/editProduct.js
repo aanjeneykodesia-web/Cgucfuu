@@ -4,17 +4,15 @@ if (localStorage.getItem("role") !== "admin") {
   document.body.innerHTML = "Access Denied";
 }
 
-const params = new URLSearchParams(window.location.search);
-const productId = params.get("id");
+const id = new URLSearchParams(window.location.search).get("id");
 
 fetch(API + "/admin/products")
   .then(r => r.json())
   .then(d => {
-    const p = d.products.find(x => x.id === productId);
-    if (!p) return alert("Product not found");
-    pname.value = p.name;
-    pprice.value = p.price;
-    pqty.value = p.qty;
+    const item = d.products.find(p => p.id === id);
+    pname.value = item.name;
+    pprice.value = item.price;
+    pqty.value = item.qty;
   });
 
 function updateProduct() {
@@ -22,13 +20,12 @@ function updateProduct() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      id: productId,
+      id,
       price: pprice.value,
       qty: pqty.value
     })
-  }).then(() => window.location.href = "admin.html");
-}
-
-function goBack() {
-  window.location.href = "admin.html";
+  }).then(() => {
+    alert("Item updated");
+    window.location.href = "admin.html";
+  });
 }

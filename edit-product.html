@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Product</title>
+</head>
+
+<body>
+<script>
+  // 🔒 ADMIN CHECK (FIRST THING)
+  if (localStorage.getItem("role") !== "admin") {
+    alert("Admin access only");
+    window.location.href = "index.html";
+  }
+</script>
+
+<h2>Edit Product</h2>
+
+<input type="text" id="productName" placeholder="Product Name">
+<button onclick="saveProduct()">Save</button>
+
+<script src="js/edit-product.js"></script>
+</body>
+</html>

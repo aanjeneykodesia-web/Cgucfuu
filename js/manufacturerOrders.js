@@ -1,7 +1,7 @@
 
 const manufacturerId = "M1";
 
-fetch(`https://c-production-df72.up.railway.appmanufacturer-orders/${manufacturerId}`)
+fetch(`https://c-production-df72.up.railway.app/manufacturer-orders/${manufacturerId}`)
   .then(res => res.json())
   .then(orders => {
     orders.forEach(order => {

@@ -1,4 +1,4 @@
-const API = "https://c-production-c7d3.up.railway.app";
+const API = "https://c-production-df72.up.railway.app";
 
 const adminList = document.getElementById("adminList");
 

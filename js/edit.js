@@ -1,5 +1,5 @@
 // 🔗 Live Railway backend
-const BACKEND_URL = "https://c-production-c7d3.up.railway.app";
+const BACKEND_URL = "https://c-production-df72.up.railway.app";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("edit.js loaded");
